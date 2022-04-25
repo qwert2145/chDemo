@@ -1,0 +1,21 @@
+spring:
+  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+    click:
+      driver-class-name: ru.yandex.clickhouse.ClickHouseDriver
+      jdbc-url: jdbc:clickhouse://10.133.133.157:8123/test2022
+      password: health
+      username: default
+      initialSize: 10
+      maxActive: 10
+      maxWait: 6000
+      validationQuery: select 1
+    mysql:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://127.0.0.1/test?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+      password: root
+      username: root
+      initialSize: 20
+      maxActive: 50
+      maxWait: 2000
+      validationQuery: select 1
