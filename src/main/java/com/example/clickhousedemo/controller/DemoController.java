@@ -1,8 +1,11 @@
 package com.example.clickhousedemo.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.example.clickhousedemo.dao.click.ClickUserMapper;
+import com.example.clickhousedemo.dao.click.DwdActDimMemberActivityCMapper;
 import com.example.clickhousedemo.dao.mysql.MysqlUserMapper;
+import com.example.clickhousedemo.entity.click.ClickUser;
+import com.example.clickhousedemo.entity.click.DwdActDimMemberActivityC;
+import com.example.clickhousedemo.entity.mysql.MysqlUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,13 +28,21 @@ public class DemoController {
     @Autowired
     private ClickUserMapper clickUserMapper;
 
+    @Autowired
+    private DwdActDimMemberActivityCMapper dwdActDimMemberActivityCMapper;
+
     @GetMapping("/mysql")
-    public String mysqlTest(){
-        return JSON.toJSON(mysqlUserMapper.selectById(1)).toString();
+    public MysqlUser mysqlTest(){
+        return  mysqlUserMapper.selectById(1);
     }
 
     @GetMapping("/click")
-    public String clickHouseTest(){
-        return JSON.toJSON(clickUserMapper.selectById(1)).toString();
+    public ClickUser clickHouseTest(){
+        return clickUserMapper.selectById(1);
+    }
+
+    @GetMapping("/click/yzl")
+    public DwdActDimMemberActivityC clickHouseYzlTest(){
+        return dwdActDimMemberActivityCMapper.selectById(1);
     }
 }

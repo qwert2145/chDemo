@@ -1,10 +1,9 @@
 spring:
   datasource:
-#    type: com.alibaba.druid.pool.DruidDataSource
     click:
-      driver-class-name: ru.yandex.clickhouse.ClickHouseDriver
-      jdbc-url: jdbc:clickhouse://10.133.133.157:8123/test2022
-      password: health
+      driver-class-name: com.clickhouse.jdbc.ClickHouseDriver
+      jdbc-url: jdbc:clickhouse://10.4.10.3:8123/yzl_dw
+      password: Default@123
       username: default
       initialSize: 10
       maxActive: 10
@@ -13,7 +12,7 @@ spring:
     mysql:
       driver-class-name: com.mysql.cj.jdbc.Driver
       jdbc-url: jdbc:mysql://127.0.0.1/test?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
-      password: root
+      password: root_pwd
       username: root
       initialSize: 20
       maxActive: 50
